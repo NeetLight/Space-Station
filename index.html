@@ -4,20 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Space Station</title>
-  <meta name="description" content="Relatórios de bordo de milhares de estações espaciais." />
+  <meta name="description" content="Arquivo de relatórios de bordo de milhares de estações espaciais." />
   <style>
     :root {
       --bg: #02040a;
-      --bg-2: #050914;
-      --panel: rgba(10, 18, 34, 0.84);
-      --panel-2: rgba(15, 28, 52, 0.76);
       --line: rgba(120, 180, 255, 0.18);
       --line-2: rgba(120, 180, 255, 0.30);
-      --glow: rgba(116, 203, 255, 0.16);
       --text: #d8e8ff;
       --text-soft: #9bb2cf;
       --accent: #7cd3ff;
-      --accent-2: #78a7ff;
       --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
       --radius: 20px;
       --font-ui: Inter, Arial, Helvetica, sans-serif;
@@ -167,7 +162,7 @@
 
     .main {
       display: grid;
-      grid-template-columns: 360px 1fr;
+      grid-template-columns: 320px 1fr;
       min-height: 740px;
     }
 
@@ -208,9 +203,7 @@
       color: var(--accent);
     }
 
-    .panel-body {
-      padding: 16px;
-    }
+    .panel-body { padding: 16px; }
 
     .button-stack {
       display: grid;
@@ -218,8 +211,7 @@
       margin-bottom: 16px;
     }
 
-    button,
-    select {
+    button {
       border: 1px solid var(--line);
       background: linear-gradient(180deg, rgba(124,211,255,0.08), rgba(120,167,255,0.04));
       color: var(--text);
@@ -233,8 +225,7 @@
       width: 100%;
     }
 
-    button:hover,
-    select:hover {
+    button:hover {
       border-color: var(--line-2);
       box-shadow: 0 0 0 4px rgba(124,211,255,0.05);
     }
@@ -248,16 +239,6 @@
     .secondary {
       background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
       color: var(--text-soft);
-    }
-
-    .control-label {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 12px;
-      font-family: var(--font-mono);
-      color: var(--text-soft);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
     }
 
     .mini-grid, .metric-grid {
@@ -290,13 +271,11 @@
     }
 
     .legend {
-      margin-top: 14px;
+      margin-top: 8px;
       font-size: 13px;
-      line-height: 1.6;
+      line-height: 1.7;
       color: var(--text-soft);
     }
-
-    .legend strong { color: var(--text); }
 
     .report-shell {
       display: grid;
@@ -378,9 +357,7 @@
       letter-spacing: 0.08em;
     }
 
-    .blink {
-      animation: blink 1.8s steps(2, start) infinite;
-    }
+    .blink { animation: blink 1.8s steps(2, start) infinite; }
 
     @keyframes blink {
       0%, 40% { opacity: 1; }
@@ -415,20 +392,20 @@
       <div class="topbar">
         <div class="brand">
           <div class="brand-mark"></div>
-          <div class="title-block">
+          <div>
             <h1 class="site-title">Space Station</h1>
             <div class="site-subtitle">Arquivo vivo de relatórios de bordo • estações de coleta e estudo espacial</div>
           </div>
         </div>
         <div class="status-pill">sistema de bordo • online</div>
-        <div class="status-pill blink">registro procedural ativo</div>
+        <div class="status-pill blink">registro ativo</div>
       </div>
 
       <div class="main">
         <aside class="sidebar">
           <div class="panel">
             <div class="panel-header">
-              <div class="panel-title">controle de geração</div>
+              <div class="panel-title">controle de bordo</div>
             </div>
             <div class="panel-body">
               <div class="button-stack">
@@ -436,20 +413,8 @@
                 <button class="secondary" id="copyBtn">Copiar relatório</button>
               </div>
 
-              <label class="control-label" for="toneSelect">Modo de geração</label>
-              <select id="toneSelect">
-                <option value="auto">Automático</option>
-                <option value="routine">Rotina</option>
-                <option value="technical">Técnico</option>
-                <option value="scientific">Científico</option>
-                <option value="human">Humano</option>
-                <option value="criminal">Criminal</option>
-                <option value="alien">Alienígena</option>
-                <option value="strange">Estranho</option>
-              </select>
-
               <div class="legend">
-                <strong>Regra do universo:</strong> o relatório não explica o funcionamento básico da estação. O texto assume que quem lê já conhece a estrutura da nave e sua rotina.
+                Sistema pronto para emitir um novo relatório de uma das estações em operação.
               </div>
             </div>
           </div>
@@ -472,7 +437,7 @@
                 <div class="metric-value">1 mês a 5 anos</div>
               </div>
               <div class="metric">
-                <div class="metric-label">Narrador padrão</div>
+                <div class="metric-label">Autor padrão</div>
                 <div class="metric-value">Capitão</div>
               </div>
             </div>
@@ -533,11 +498,11 @@
                 <h2 class="report-title" id="reportTitle">Aguardando novo relatório</h2>
               </div>
 
-              <div class="report-intro" id="reportIntro">Acione o sistema para gerar um novo registro de bordo.</div>
+              <div class="report-intro" id="reportIntro">Acione o sistema para carregar um novo registro de bordo.</div>
             </div>
           </div>
 
-          <div class="panel" style="flex:1;">
+          <div class="panel">
             <div class="panel-header">
               <div class="panel-title">corpo narrativo</div>
               <div class="panel-title">1200 palavras alvo</div>
@@ -590,182 +555,34 @@
     ];
 
     const categories = {
-      routine: {
-        label: "Rotina",
-        threat: ["mínima", "nenhuma", "baixa"],
-        weight: 40,
-        titles: [
-          "Atraso sem relevância na distribuição interna",
-          "Oscilação banal em turno de manutenção",
-          "Relatório comum sobre ajuste de rotina",
-          "Pequeno desvio de procedimento sem danos",
-          "Ocorrência simples durante o ciclo de bordo"
-        ],
-        hooks: [
-          "O turno começou sem qualquer indicação de anormalidade.",
-          "O ciclo desta manhã foi marcado apenas por pequenos atrasos internos.",
-          "Este registro não descreve situação excepcional, apenas um desvio ordinário de rotina.",
-          "O presente relatório trata de uma ocorrência simples, sem ameaça direta à integridade da estação."
-        ],
-        focuses: [
-          "um lote de sementes de origem mineral demorou mais para ser separado no jardim",
-          "uma remessa interna foi parar na biblioteca por erro do correio",
-          "o cozinheiro recebeu vegetais ainda verdes e precisou reajustar o serviço",
-          "um fliperama da sala de jogos consumiu energia acima do normal e exigiu verificação",
-          "o faxineiro relatou acúmulo incomum de resíduos na ala de lixo após descarte mal identificado",
-          "o barista teve de interromper a abertura da sala de lazer por falha simples no aquecimento"
-        ]
-      },
-      technical: {
-        label: "Técnico",
-        threat: ["baixa", "moderada", "relevante"],
-        weight: 25,
-        titles: [
-          "Falha localizada em sistema de suporte interno",
-          "Vibração incomum detectada em circuito secundário",
-          "Instabilidade operacional em setor de manutenção",
-          "Pane parcial contida sem perda crítica",
-          "Anomalia mecânica de origem ainda indefinida"
-        ],
-        hooks: [
-          "Às primeiras horas do turno noturno foi detectada instabilidade em infraestrutura secundária.",
-          "Recebi o chamado quando a equipe da engenharia ainda acreditava tratar-se de manutenção ordinária.",
-          "O que começou como verificação rotineira de tubulação terminou exigindo contenção imediata.",
-          "Registro a seguir evento técnico com impacto limitado, porém digno de documentação completa."
-        ],
-        focuses: [
-          "uma tubulação de oxigênio vibrava de forma intermitente nos corredores da engenharia",
-          "o sistema de filtragem de ar apresentou queda súbita de eficiência na ala médica",
-          "um conjunto de cabos da ala mecânica foi encontrado com desgaste acima do previsto",
-          "a pressão hídrica nos setores traseiros oscilou por quase quarenta minutos",
-          "sensores de temperatura na ala de genética passaram a divergir entre si sem razão imediata"
-        ]
-      },
-      scientific: {
-        label: "Científico",
-        threat: ["baixa", "moderada", "indefinida"],
-        weight: 15,
-        titles: [
-          "Material coletado exigiu reclassificação imediata",
-          "Amostra de interesse não prevista no roteiro atual",
-          "Descoberta de comportamento incomum em item de coleta",
-          "Ocorrência vinculada a espécime em análise inicial",
-          "Relatório sobre objeto de origem ainda não determinada"
-        ],
-        hooks: [
-          "O item recuperado na última janela de coleta não apresentava relevância aparente no momento do recolhimento.",
-          "Recebi da ala da ciência pedido de registro formal após alteração de classificação de amostra.",
-          "O presente relatório documenta descoberta de possível interesse superior ao escopo da estação.",
-          "A ocorrência descrita abaixo originou-se de material enviado da mineração para análise básica."
-        ],
-        focuses: [
-          "um fragmento mineral respondeu a estímulos térmicos de modo incompatível com sua composição aparente",
-          "sementes encontradas em cascalho de asteroide germinaram rápido demais no jardim",
-          "um núcleo energético inerte liberou radiação organizada quando movido para a ala de química",
-          "uma amostra translúcida apresentou movimento interno apesar da ausência de sinais vitais clássicos",
-          "um composto orgânico sem paralelo nos registros alterou a cor de soluções de teste em minutos"
-        ]
-      },
-      human: {
-        label: "Humano",
-        threat: ["nenhuma", "baixa", "moderada"],
-        weight: 10,
-        titles: [
-          "Conflito pessoal com impacto moderado no serviço",
-          "Desentendimento entre setores exigiu mediação",
-          "Relatório sobre conduta e desgaste de tripulação",
-          "Divergência interna durante ciclo prolongado",
-          "Registro de incidente humano sem dano estrutural"
-        ],
-        hooks: [
-          "Nem toda dificuldade enfrentada por esta estação nasce do exterior.",
-          "Após meses de viagem, pequenas tensões entre setores começaram a escapar do limite aceitável.",
-          "Este relatório não trata de falha da nave, mas do estado de seus ocupantes.",
-          "A situação abaixo descrita surgiu de desgaste humano acumulado e não de anomalia técnica."
-        ],
-        focuses: [
-          "um atrito antigo entre a cozinha e a ala médica voltou à tona por causa da distribuição de alimentos",
-          "o músico recusou-se a encerrar apresentação apesar de pedido formal da polícia",
-          "o jardineiro e um geneticista discutiram sobre uso de sementes ainda não liberadas",
-          "dois tripulantes de entretenimento causaram tumulto involuntário no turno de repouso",
-          "um auxiliar dos correios insistiu em manter pacote pessoal sem registro no compartimento correto"
-        ]
-      },
-      criminal: {
-        label: "Criminal",
-        threat: ["moderada", "alta", "crítica"],
-        weight: 5,
-        titles: [
-          "Suspeita de infiltrado após última parada planetária",
-          "Sabotagem discreta identificada em setor vital",
-          "Registro de acesso indevido a área restrita",
-          "Ocorrência criminal com intenção ainda sob apuração",
-          "Interferência humana deliberada em operação interna"
-        ],
-        hooks: [
-          "Depois da última janela de reabastecimento, a rotina da estação permaneceu estável por dias, o que tornou a ocorrência seguinte mais incômoda.",
-          "Não havia razão imediata para suspeitar de presença indevida a bordo até que sinais isolados começaram a se alinhar.",
-          "O detetive solicitou meu comparecimento quando a hipótese de simples erro operacional deixou de ser sustentável.",
-          "A ocorrência abaixo descrita teve origem provável em agente humano agindo com intenção hostil."
-        ],
-        focuses: [
-          "uma credencial de serviço apareceu duplicada na ala de carga após retorno a planeta habitado",
-          "alguém tentou alterar registros de uma descoberta antes do envio ao planeta mais próximo",
-          "um trecho da tubulação de oxigênio foi manipulado com precisão excessiva para ser acidente",
-          "caixas vindas do reabastecimento continham volume não registrado no manifesto de entrada",
-          "o barista reconheceu no salão um rosto que não constava na escala viva da estação"
-        ]
-      },
-      alien: {
-        label: "Alienígena",
-        threat: ["indefinida", "alta", "mortal", "baixa"],
-        weight: 5,
-        titles: [
-          "Espécime de origem extraterrestre exigiu contenção",
-          "Forma de vida não registrada detectada após coleta",
-          "Ocorrência vinculada a organismo alienígena",
-          "Contato não planejado com entidade biológica externa",
-          "Registro de interação com criatura de classificação provisória"
-        ],
-        hooks: [
-          "A estação existe para encontrar o desconhecido, e por vezes o desconhecido responde antes que estejamos prontos.",
-          "A equipe da mineração julgou ter recolhido apenas material aderido à rocha externa.",
-          "O espécime não parecia vivo quando cruzou a ala de carga sob protocolo padrão.",
-          "Apresento a seguir ocorrência envolvendo forma de vida não catalogada nos arquivos centrais."
-        ],
-        focuses: [
-          "uma criatura pequena e translúcida despertou na ala de química após horas de completa imobilidade",
-          "um parasita microscópico alterou o crescimento de vegetais cultivados no jardim",
-          "um organismo aderente foi encontrado vivendo no interior de dutos dos corredores da engenharia",
-          "uma forma de vida aparentemente dócil passou a seguir o barista pela sala de lazer",
-          "um ser agressivo rompeu recipiente de contenção improvisada ainda na ala da ciência"
-        ]
-      },
-      strange: {
-        label: "Estranho",
-        threat: ["indefinida", "moderada", "alta"],
-        weight: 5,
-        titles: [
-          "Evento sem explicação satisfatória até o encerramento",
-          "Ocorrência anômala registrada em setor interno",
-          "Fenômeno incompatível com leitura dos sistemas",
-          "Relatório sobre manifestação ainda não classificada",
-          "Registro de perturbação sem origem conclusiva"
-        ],
-        hooks: [
-          "Nem todas as ocorrências desta estação aceitam encerramento limpo.",
-          "Os sensores não apresentaram consenso e tampouco a tripulação envolvida.",
-          "Registo a seguir situação cuja explicação permanece em aberto mesmo após revisão técnica.",
-          "O presente evento não se ajusta com facilidade às categorias usuais de bordo."
-        ],
-        focuses: [
-          "uma sequência de vozes foi ouvida nos corredores da engenharia em trecho sem presença humana",
-          "livros da biblioteca foram encontrados reorganizados por assunto inexistente nos catálogos",
-          "o altar da capelania apareceu coberto por pó metálico vindo de origem não rastreada",
-          "painéis da sala de comando exibiram por segundos coordenadas ausentes de qualquer rota atual",
-          "um dos dormitórios exibiu temperatura inferior ao resto da nave sem falha mecânica associada"
-        ]
-      }
+      routine: { label: "Rotina", threat: ["mínima", "nenhuma", "baixa"], weight: 40,
+        titles: ["Atraso sem relevância na distribuição interna", "Oscilação banal em turno de manutenção", "Relatório comum sobre ajuste de rotina", "Pequeno desvio de procedimento sem danos", "Ocorrência simples durante o ciclo de bordo"],
+        hooks: ["O turno começou sem qualquer indicação de anormalidade.", "O ciclo desta manhã foi marcado apenas por pequenos atrasos internos.", "Este registro não descreve situação excepcional, apenas um desvio ordinário de rotina.", "O presente relatório trata de uma ocorrência simples, sem ameaça direta à integridade da estação."],
+        focuses: ["um lote de sementes de origem mineral demorou mais para ser separado no jardim", "uma remessa interna foi parar na biblioteca por erro do correio", "o cozinheiro recebeu vegetais ainda verdes e precisou reajustar o serviço", "um fliperama da sala de jogos consumiu energia acima do normal e exigiu verificação", "o faxineiro relatou acúmulo incomum de resíduos na ala de lixo após descarte mal identificado", "o barista teve de interromper a abertura da sala de lazer por falha simples no aquecimento"] },
+      technical: { label: "Técnico", threat: ["baixa", "moderada", "relevante"], weight: 25,
+        titles: ["Falha localizada em sistema de suporte interno", "Vibração incomum detectada em circuito secundário", "Instabilidade operacional em setor de manutenção", "Pane parcial contida sem perda crítica", "Anomalia mecânica de origem ainda indefinida"],
+        hooks: ["Às primeiras horas do turno noturno foi detectada instabilidade em infraestrutura secundária.", "Recebi o chamado quando a equipe da engenharia ainda acreditava tratar-se de manutenção ordinária.", "O que começou como verificação rotineira de tubulação terminou exigindo contenção imediata.", "Registro a seguir evento técnico com impacto limitado, porém digno de documentação completa."],
+        focuses: ["uma tubulação de oxigênio vibrava de forma intermitente nos corredores da engenharia", "o sistema de filtragem de ar apresentou queda súbita de eficiência na ala médica", "um conjunto de cabos da ala mecânica foi encontrado com desgaste acima do previsto", "a pressão hídrica nos setores traseiros oscilou por quase quarenta minutos", "sensores de temperatura na ala de genética passaram a divergir entre si sem razão imediata"] },
+      scientific: { label: "Científico", threat: ["baixa", "moderada", "indefinida"], weight: 15,
+        titles: ["Material coletado exigiu reclassificação imediata", "Amostra de interesse não prevista no roteiro atual", "Descoberta de comportamento incomum em item de coleta", "Ocorrência vinculada a espécime em análise inicial", "Relatório sobre objeto de origem ainda não determinada"],
+        hooks: ["O item recuperado na última janela de coleta não apresentava relevância aparente no momento do recolhimento.", "Recebi da ala da ciência pedido de registro formal após alteração de classificação de amostra.", "O presente relatório documenta descoberta de possível interesse superior ao escopo da estação.", "A ocorrência descrita abaixo originou-se de material enviado da mineração para análise básica."],
+        focuses: ["um fragmento mineral respondeu a estímulos térmicos de modo incompatível com sua composição aparente", "sementes encontradas em cascalho de asteroide germinaram rápido demais no jardim", "um núcleo energético inerte liberou radiação organizada quando movido para a ala de química", "uma amostra translúcida apresentou movimento interno apesar da ausência de sinais vitais clássicos", "um composto orgânico sem paralelo nos registros alterou a cor de soluções de teste em minutos"] },
+      human: { label: "Humano", threat: ["nenhuma", "baixa", "moderada"], weight: 10,
+        titles: ["Conflito pessoal com impacto moderado no serviço", "Desentendimento entre setores exigiu mediação", "Relatório sobre conduta e desgaste de tripulação", "Divergência interna durante ciclo prolongado", "Registro de incidente humano sem dano estrutural"],
+        hooks: ["Nem toda dificuldade enfrentada por esta estação nasce do exterior.", "Após meses de viagem, pequenas tensões entre setores começaram a escapar do limite aceitável.", "Este relatório não trata de falha da nave, mas do estado de seus ocupantes.", "A situação abaixo descrita surgiu de desgaste humano acumulado e não de anomalia técnica."],
+        focuses: ["um atrito antigo entre a cozinha e a ala médica voltou à tona por causa da distribuição de alimentos", "o músico recusou-se a encerrar apresentação apesar de pedido formal da polícia", "o jardineiro e um geneticista discutiram sobre uso de sementes ainda não liberadas", "dois tripulantes de entretenimento causaram tumulto involuntário no turno de repouso", "um auxiliar dos correios insistiu em manter pacote pessoal sem registro no compartimento correto"] },
+      criminal: { label: "Criminal", threat: ["moderada", "alta", "crítica"], weight: 5,
+        titles: ["Suspeita de infiltrado após última parada planetária", "Sabotagem discreta identificada em setor vital", "Registro de acesso indevido a área restrita", "Ocorrência criminal com intenção ainda sob apuração", "Interferência humana deliberada em operação interna"],
+        hooks: ["Depois da última janela de reabastecimento, a rotina da estação permaneceu estável por dias, o que tornou a ocorrência seguinte mais incômoda.", "Não havia razão imediata para suspeitar de presença indevida a bordo até que sinais isolados começaram a se alinhar.", "O detetive solicitou meu comparecimento quando a hipótese de simples erro operacional deixou de ser sustentável.", "A ocorrência abaixo descrita teve origem provável em agente humano agindo com intenção hostil."],
+        focuses: ["uma credencial de serviço apareceu duplicada na ala de carga após retorno a planeta habitado", "alguém tentou alterar registros de uma descoberta antes do envio ao planeta mais próximo", "um trecho da tubulação de oxigênio foi manipulado com precisão excessiva para ser acidente", "caixas vindas do reabastecimento continham volume não registrado no manifesto de entrada", "o barista reconheceu no salão um rosto que não constava na escala viva da estação"] },
+      alien: { label: "Alienígena", threat: ["indefinida", "alta", "mortal", "baixa"], weight: 5,
+        titles: ["Espécime de origem extraterrestre exigiu contenção", "Forma de vida não registrada detectada após coleta", "Ocorrência vinculada a organismo alienígena", "Contato não planejado com entidade biológica externa", "Registro de interação com criatura de classificação provisória"],
+        hooks: ["A estação existe para encontrar o desconhecido, e por vezes o desconhecido responde antes que estejamos prontos.", "A equipe da mineração julgou ter recolhido apenas material aderido à rocha externa.", "O espécime não parecia vivo quando cruzou a ala de carga sob protocolo padrão.", "Apresento a seguir ocorrência envolvendo forma de vida não catalogada nos arquivos centrais."],
+        focuses: ["uma criatura pequena e translúcida despertou na ala de química após horas de completa imobilidade", "um parasita microscópico alterou o crescimento de vegetais cultivados no jardim", "um organismo aderente foi encontrado vivendo no interior de dutos dos corredores da engenharia", "uma forma de vida aparentemente dócil passou a seguir o barista pela sala de lazer", "um ser agressivo rompeu recipiente de contenção improvisada ainda na ala da ciência"] },
+      strange: { label: "Estranho", threat: ["indefinida", "moderada", "alta"], weight: 5,
+        titles: ["Evento sem explicação satisfatória até o encerramento", "Ocorrência anômala registrada em setor interno", "Fenômeno incompatível com leitura dos sistemas", "Relatório sobre manifestação ainda não classificada", "Registro de perturbação sem origem conclusiva"],
+        hooks: ["Nem todas as ocorrências desta estação aceitam encerramento limpo.", "Os sensores não apresentaram consenso e tampouco a tripulação envolvida.", "Registro a seguir situação cuja explicação permanece em aberto mesmo após revisão técnica.", "O presente evento não se ajusta com facilidade às categorias usuais de bordo."],
+        focuses: ["uma sequência de vozes foi ouvida nos corredores da engenharia em trecho sem presença humana", "livros da biblioteca foram encontrados reorganizados por assunto inexistente nos catálogos", "o altar da capelania apareceu coberto por pó metálico vindo de origem não rastreada", "painéis da sala de comando exibiram por segundos coordenadas ausentes de qualquer rota atual", "um dos dormitórios exibiu temperatura inferior ao resto da nave sem falha mecânica associada"] }
     };
 
     const sectorByCategory = {
@@ -779,136 +596,39 @@
     };
 
     const outcomes = {
-      routine: [
-        "O caso foi encerrado sem necessidade de ação adicional além do registro e ajuste de procedimento.",
-        "Não houve risco real à tripulação, apenas revisão do fluxo interno e advertência verbal aos envolvidos.",
-        "A ocorrência terminou sem dano material ou biológico, ficando o episódio arquivado como desvio menor de rotina."
-      ],
-      technical: [
-        "A contenção foi bem-sucedida e o setor permaneceu estável até o fim do meu turno de observação.",
-        "O reparo provisório suportou o restante do ciclo, mas recomendei revisão completa na próxima janela segura.",
-        "Os sistemas voltaram ao regime aceitável, embora a causa primeira ainda mereça investigação técnica posterior."
-      ],
-      scientific: [
-        "Determinei que a amostra seja mantida sob guarda e enviada ao planeta mais próximo com prioridade moderada.",
-        "Nenhum uso imediato foi autorizado a bordo, ficando a descoberta sob vigilância e reclassificação provisória.",
-        "Encerramos o turno com a convicção de que o material excede o escopo de análise ordinária desta estação."
-      ],
-      human: [
-        "A situação foi resolvida com mediação direta e redistribuição de responsabilidades para os próximos turnos.",
-        "Não apliquei sanção formal além do registro, pois considerei o desgaste acumulado mais relevante que a intenção dos envolvidos.",
-        "O episódio serviu menos como infração e mais como lembrete de que longas travessias consomem a disciplina em pequenos pontos."
-      ],
-      criminal: [
-        "A ameaça imediata foi contida, mas mantenho revisão ampliada dos acessos desde a última parada planetária.",
-        "O suspeito não concluiu o objetivo, embora o simples fato de ter chegado até aqui exija revisão severa de protocolo.",
-        "Encerramos a ocorrência com setor isolado, registros preservados e alerta interno mantido até novo despacho."
-      ],
-      alien: [
-        "A criatura foi contida sem nova perda humana, permanecendo sob observação até destino final em laboratório planetário.",
-        "A interação terminou sem consenso sobre a natureza exata do organismo, apenas com a certeza de que não pertence a nada que conheçamos bem.",
-        "Autorizo envio prioritário da amostra viva ou de seus vestígios ao planeta viável mais próximo, com advertência máxima de biossegurança."
-      ],
-      strange: [
-        "Nada adicional ocorreu após o encerramento imediato do setor, mas a ausência de explicação permanece registrada.",
-        "Não obtivemos causa conclusiva, apenas a suspensão temporária do fenômeno antes do amanhecer de bordo.",
-        "Arquivo a ocorrência sem encerramento intelectual satisfatório, o que em si já representa motivo de incômodo suficiente."
-      ]
+      routine: ["O caso foi encerrado sem necessidade de ação adicional além do registro e ajuste de procedimento.", "Não houve risco real à tripulação, apenas revisão do fluxo interno e advertência verbal aos envolvidos.", "A ocorrência terminou sem dano material ou biológico, ficando o episódio arquivado como desvio menor de rotina."],
+      technical: ["A contenção foi bem-sucedida e o setor permaneceu estável até o fim do meu turno de observação.", "O reparo provisório suportou o restante do ciclo, mas recomendei revisão completa na próxima janela segura.", "Os sistemas voltaram ao regime aceitável, embora a causa primeira ainda mereça investigação técnica posterior."],
+      scientific: ["Determinei que a amostra seja mantida sob guarda e enviada ao planeta mais próximo com prioridade moderada.", "Nenhum uso imediato foi autorizado a bordo, ficando a descoberta sob vigilância e reclassificação provisória.", "Encerramos o turno com a convicção de que o material excede o escopo de análise ordinária desta estação."],
+      human: ["A situação foi resolvida com mediação direta e redistribuição de responsabilidades para os próximos turnos.", "Não apliquei sanção formal além do registro, pois considerei o desgaste acumulado mais relevante que a intenção dos envolvidos.", "O episódio serviu menos como infração e mais como lembrete de que longas travessias consomem a disciplina em pequenos pontos."],
+      criminal: ["A ameaça imediata foi contida, mas mantenho revisão ampliada dos acessos desde a última parada planetária.", "O suspeito não concluiu o objetivo, embora o simples fato de ter chegado até aqui exija revisão severa de protocolo.", "Encerramos a ocorrência com setor isolado, registros preservados e alerta interno mantido até novo despacho."],
+      alien: ["A criatura foi contida sem nova perda humana, permanecendo sob observação até destino final em laboratório planetário.", "A interação terminou sem consenso sobre a natureza exata do organismo, apenas com a certeza de que não pertence a nada que conheçamos bem.", "Autorizo envio prioritário da amostra viva ou de seus vestígios ao planeta viável mais próximo, com advertência máxima de biossegurança."],
+      strange: ["Nada adicional ocorreu após o encerramento imediato do setor, mas a ausência de explicação permanece registrada.", "Não obtivemos causa conclusiva, apenas a suspensão temporária do fenômeno antes do amanhecer de bordo.", "Arquivo a ocorrência sem encerramento intelectual satisfatório, o que em si já representa motivo de incômodo suficiente."]
     };
 
     const details = {
-      routine: [
-        "A equipe envolvida agiu sem alarme, o que permitiu observar com calma como um erro pequeno se espalha pela estação quando ninguém o corrige cedo.",
-        "O correio interno demorou a localizar a origem do desvio porque nenhum dos envolvidos julgou necessário relatar de imediato aquilo que parecia banal.",
-        "A repetição silenciosa de hábitos antigos foi mais relevante que o problema em si, e por isso optei por registrar o caso em detalhe suficiente.",
-        "Percebi que a tripulação lida melhor com falhas grandes do que com pequenas desordens rotineiras, talvez porque as grandes obrigam todos a prestar atenção."
-      ],
-      technical: [
-        "Os engenheiros passaram boa parte do ciclo nos corredores traseiros, escutando a estrutura como quem tenta decidir se uma nave reclama ou apenas respira.",
-        "A falha mostrou comportamento intermitente, surgindo sempre que a demanda de energia ou suporte ambiental atingia pico breve entre turnos.",
-        "Não houve pânico, mas houve o tipo de silêncio que toma a tripulação quando todos entendem que um sistema vital resolveu comportar-se como exceção.",
-        "Mesmo após o reparo provisório, a estação pareceu manter na estrutura uma memória do problema, o que justificou monitoramento reforçado."
-      ],
-      scientific: [
-        "O primeiro impulso da ciência foi tratar a amostra como curiosidade; o segundo foi reconhecer que curiosidades costumam custar menos do que descobertas mal interpretadas.",
-        "A química não confirmou perigo imediato, mas também não produziu leitura que nos permitisse chamar aquilo de seguro com honestidade.",
-        "A genética pediu contenção material e verbal, receando que qualquer uso prematuro por setores não científicos nos arrastasse para consequência desnecessária.",
-        "O jardim, como tantas vezes acontece, tornou-se parte involuntária do processo quando alguém sugeriu testar resposta orgânica em substrato vivo."
-      ],
-      human: [
-        "O episódio começou pequeno e teria morrido pequeno caso a viagem não estivesse longa o bastante para transformar irritação comum em assunto de princípio.",
-        "Percebi cedo que nenhum dos envolvidos queria exatamente vencer a discussão; queriam apenas ser ouvidos por alguém com autoridade para interromper o ruído interno.",
-        "A presença constante dos mesmos rostos por meses alonga qualquer atrito banal até que ele passe a ocupar espaço demais nos turnos seguintes.",
-        "A capelania e a sala de lazer foram citadas mais de uma vez nas versões recolhidas, sinal de que a estação inteira já vinha absorvendo o desgaste antes do registro formal."
-      ],
-      criminal: [
-        "O traço decisivo não foi a violência, mas a intenção: alguém preparou etapas demais para que o resultado pudesse ser chamado de acidente.",
-        "O detetive apontou cedo incoerências de acesso e horário, e a polícia tratou o caso com a cautela própria de quem prefere confirmar infiltração a anunciá-la cedo demais.",
-        "Revisamos entrada de suprimentos, manifestos de carga e rostos vistos no reabastecimento, e ainda assim demoramos a encontrar a costura exata da fraude.",
-        "O que mais me incomodou foi a facilidade com que hábitos confiantes de uma nave científica podem ser explorados por alguém disposto a observá-los em silêncio."
-      ],
-      alien: [
-        "Nem todos os presentes concordaram se o espécime demonstrava curiosidade, fome, defesa ou simples reação cega ao ambiente pressurizado da estação.",
-        "A equipe médica manteve distância até entender se havia vetor biológico, enquanto a ciência insistia em prolongar observação antes de qualquer ejetamento ou destruição.",
-        "A criatura ou traço alienígena parecia responder menos à presença humana do que à vibração contínua da nave, como se notasse a estação antes de notar seus ocupantes.",
-        "O incidente só não escalou mais rápido porque parte da tripulação, acostumada a encontrar o incomum, aceitou obedecer antes de compreender plenamente o risco."
-      ],
-      strange: [
-        "O fenômeno não se repetiu sob observação direta, o que tornou os relatos humanos ao mesmo tempo insuficientes e impossíveis de ignorar.",
-        "Revimos sensores, horários e deslocamentos e terminamos com um conjunto de dados que não mentia, apenas se recusava a construir uma explicação elegante.",
-        "Não gostei da facilidade com que alguns membros da tripulação aceitaram a ocorrência como algo normal desta rota, como se conviver com o inexplicável fosse apenas outra habilidade de bordo.",
-        "Talvez o aspecto mais desconfortável do caso seja que nada nele exigiu grande espetáculo; bastou deslocar um detalhe familiar para fora do lugar."
-      ]
+      routine: ["A equipe envolvida agiu sem alarme, o que permitiu observar com calma como um erro pequeno se espalha pela estação quando ninguém o corrige cedo.", "O correio interno demorou a localizar a origem do desvio porque nenhum dos envolvidos julgou necessário relatar de imediato aquilo que parecia banal.", "A repetição silenciosa de hábitos antigos foi mais relevante que o problema em si, e por isso optei por registrar o caso em detalhe suficiente.", "Percebi que a tripulação lida melhor com falhas grandes do que com pequenas desordens rotineiras, talvez porque as grandes obrigam todos a prestar atenção."],
+      technical: ["Os engenheiros passaram boa parte do ciclo nos corredores traseiros, escutando a estrutura como quem tenta decidir se uma nave reclama ou apenas respira.", "A falha mostrou comportamento intermitente, surgindo sempre que a demanda de energia ou suporte ambiental atingia pico breve entre turnos.", "Não houve pânico, mas houve o tipo de silêncio que toma a tripulação quando todos entendem que um sistema vital resolveu comportar-se como exceção.", "Mesmo após o reparo provisório, a estação pareceu manter na estrutura uma memória do problema, o que justificou monitoramento reforçado."],
+      scientific: ["O primeiro impulso da ciência foi tratar a amostra como curiosidade; o segundo foi reconhecer que curiosidades costumam custar menos do que descobertas mal interpretadas.", "A química não confirmou perigo imediato, mas também não produziu leitura que nos permitisse chamar aquilo de seguro com honestidade.", "A genética pediu contenção material e verbal, receando que qualquer uso prematuro por setores não científicos nos arrastasse para consequência desnecessária.", "O jardim, como tantas vezes acontece, tornou-se parte involuntária do processo quando alguém sugeriu testar resposta orgânica em substrato vivo."],
+      human: ["O episódio começou pequeno e teria morrido pequeno caso a viagem não estivesse longa o bastante para transformar irritação comum em assunto de princípio.", "Percebi cedo que nenhum dos envolvidos queria exatamente vencer a discussão; queriam apenas ser ouvidos por alguém com autoridade para interromper o ruído interno.", "A presença constante dos mesmos rostos por meses alonga qualquer atrito banal até que ele passe a ocupar espaço demais nos turnos seguintes.", "A capelania e a sala de lazer foram citadas mais de uma vez nas versões recolhidas, sinal de que a estação inteira já vinha absorvendo o desgaste antes do registro formal."],
+      criminal: ["O traço decisivo não foi a violência, mas a intenção: alguém preparou etapas demais para que o resultado pudesse ser chamado de acidente.", "O detetive apontou cedo incoerências de acesso e horário, e a polícia tratou o caso com a cautela própria de quem prefere confirmar infiltração a anunciá-la cedo demais.", "Revisamos entrada de suprimentos, manifestos de carga e rostos vistos no reabastecimento, e ainda assim demoramos a encontrar a costura exata da fraude.", "O que mais me incomodou foi a facilidade com que hábitos confiantes de uma nave científica podem ser explorados por alguém disposto a observá-los em silêncio."],
+      alien: ["Nem todos os presentes concordaram se o espécime demonstrava curiosidade, fome, defesa ou simples reação cega ao ambiente pressurizado da estação.", "A equipe médica manteve distância até entender se havia vetor biológico, enquanto a ciência insistia em prolongar observação antes de qualquer ejetamento ou destruição.", "A criatura ou traço alienígena parecia responder menos à presença humana do que à vibração contínua da nave, como se notasse a estação antes de notar seus ocupantes.", "O incidente só não escalou mais rápido porque parte da tripulação, acostumada a encontrar o incomum, aceitou obedecer antes de compreender plenamente o risco."],
+      strange: ["O fenômeno não se repetiu sob observação direta, o que tornou os relatos humanos ao mesmo tempo insuficientes e impossíveis de ignorar.", "Revimos sensores, horários e deslocamentos e terminamos com um conjunto de dados que não mentia, apenas se recusava a construir uma explicação elegante.", "Não gostei da facilidade com que alguns membros da tripulação aceitaram a ocorrência como algo normal desta rota, como se conviver com o inexplicável fosse apenas outra habilidade de bordo.", "Talvez o aspecto mais desconfortável do caso seja que nada nele exigiu grande espetáculo; bastou deslocar um detalhe familiar para fora do lugar."]
     };
 
     const endings = {
-      routine: [
-        "Assino este relatório apenas para preservar ordem documental onde outros prefeririam deixar o caso morrer por tédio.",
-        "Nada nesta ocorrência mudará o destino da estação, mas são justamente as pequenas coisas ignoradas que mais tarde costumam reaparecer com outro nome.",
-        "Encaminho o registro para arquivo simples e retorno a atenção da estação a questões de maior vulto."
-      ],
-      technical: [
-        "Permanece aberta recomendação de observação passiva até que nova janela de manutenção permita exame mais profundo.",
-        "A estação segue operacional, ainda que eu prefira não chamar este episódio de encerrado em sentido absoluto.",
-        "Arquive-se com prioridade técnica média e revisão futura obrigatória."
-      ],
-      scientific: [
-        "Se o valor da amostra superar a impressão inicial, este relatório será lembrado como ponto discreto de algo maior; se não, terá servido ao menos como prudência.",
-        "Mantenho restrição total a uso recreativo, alimentar ou energético até despacho superior em planeta habilitado.",
-        "Registro concluído com indicação de transporte prioritário ao próximo centro de estudo profundo."
-      ],
-      human: [
-        "A estação continua inteira, que nem sempre é o mesmo que dizer tranquila.",
-        "A rotina retomou seu curso, embora a memória do atrito deva persistir por mais turnos do que os envolvidos admitirão em voz alta.",
-        "Arquivo a ocorrência como lembrete de que disciplina também é manutenção."
-      ],
-      criminal: [
-        "Não é agradável escrever que o exterior entrou conosco quando julgávamos ter partido sozinhos, mas negar isso seria pior que o incidente em si.",
-        "O relatório segue para cópia restrita da polícia e do detetive, com revisão de protocolo imediatamente recomendada.",
-        "Enquanto esta estação carregar descobertas, sempre existirá quem queira atravessá-la pelo motivo errado."
-      ],
-      alien: [
-        "Seja a criatura uma ameaça, um recurso ou apenas mais um erro do nosso vocabulário, não pertence ao campo das decisões apressadas.",
-        "Assino este documento com a impressão desconfortável de que fomos nós os observados por mais tempo do que a entendemos.",
-        "Reforço contenção total e silêncio operacional até entrega a laboratório planetário qualificado."
-      ],
-      strange: [
-        "Não peço que o arquivo acredite em mim; peço apenas que preserve o registro antes que a própria estação tente nos convencer de que nada houve.",
-        "Há dias em que o espaço se limita a permanecer do lado de fora. Este não foi um deles.",
-        "Encerrado no papel, não no entendimento."
-      ]
+      routine: ["Assino este relatório apenas para preservar ordem documental onde outros prefeririam deixar o caso morrer por tédio.", "Nada nesta ocorrência mudará o destino da estação, mas são justamente as pequenas coisas ignoradas que mais tarde costumam reaparecer com outro nome.", "Encaminho o registro para arquivo simples e retorno a atenção da estação a questões de maior vulto."],
+      technical: ["Permanece aberta recomendação de observação passiva até que nova janela de manutenção permita exame mais profundo.", "A estação segue operacional, ainda que eu prefira não chamar este episódio de encerrado em sentido absoluto.", "Arquive-se com prioridade técnica média e revisão futura obrigatória."],
+      scientific: ["Se o valor da amostra superar a impressão inicial, este relatório será lembrado como ponto discreto de algo maior; se não, terá servido ao menos como prudência.", "Mantenho restrição total a uso recreativo, alimentar ou energético até despacho superior em planeta habilitado.", "Registro concluído com indicação de transporte prioritário ao próximo centro de estudo profundo."],
+      human: ["A estação continua inteira, que nem sempre é o mesmo que dizer tranquila.", "A rotina retomou seu curso, embora a memória do atrito deva persistir por mais turnos do que os envolvidos admitirão em voz alta.", "Arquivo a ocorrência como lembrete de que disciplina também é manutenção."],
+      criminal: ["Não é agradável escrever que o exterior entrou conosco quando julgávamos ter partido sozinhos, mas negar isso seria pior que o incidente em si.", "O relatório segue para cópia restrita da polícia e do detetive, com revisão de protocolo imediatamente recomendada.", "Enquanto esta estação carregar descobertas, sempre existirá quem queira atravessá-la pelo motivo errado."],
+      alien: ["Seja a criatura uma ameaça, um recurso ou apenas mais um erro do nosso vocabulário, não pertence ao campo das decisões apressadas.", "Assino este documento com a impressão desconfortável de que fomos nós os observados por mais tempo do que a entendemos.", "Reforço contenção total e silêncio operacional até entrega a laboratório planetário qualificado."],
+      strange: ["Não peço que o arquivo acredite em mim; peço apenas que preserve o registro antes que a própria estação tente nos convencer de que nada houve.", "Há dias em que o espaço se limita a permanecer do lado de fora. Este não foi um deles.", "Encerrado no papel, não no entendimento."]
     };
 
-    function rand(list) {
-      return list[Math.floor(Math.random() * list.length)];
-    }
+    function rand(list) { return list[Math.floor(Math.random() * list.length)]; }
+    function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 
-    function randInt(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    function pickCategory(mode) {
-      if (mode !== 'auto') return mode;
+    function pickCategory() {
       const entries = Object.entries(categories);
       const total = entries.reduce((acc, [, value]) => acc + value.weight, 0);
       let roll = Math.random() * total;
@@ -919,34 +639,19 @@
       return 'routine';
     }
 
-    function stationCode() {
-      return `${rand(stationPrefixes)}-${randInt(100, 999)}`;
-    }
-
-    function recordCode() {
-      return `RG-${randInt(1000, 9999)}-${randInt(10, 99)}`;
-    }
-
-    function missionDay() {
-      return randInt(11, 1734);
-    }
-
-    function missionMonth() {
-      return randInt(1, 60);
-    }
+    function stationCode() { return `${rand(stationPrefixes)}-${randInt(100, 999)}`; }
+    function recordCode() { return `RG-${randInt(1000, 9999)}-${randInt(10, 99)}`; }
+    function missionDay() { return randInt(11, 1734); }
+    function missionMonth() { return randInt(1, 60); }
 
     function pickAuthor(category) {
-      if (category === 'criminal' && Math.random() < 0.12) {
-        return rand([...crew.police, ...crew.engineering, ...crew.medical]);
-      }
-      if (category === 'alien' && Math.random() < 0.08) {
-        return rand([...crew.science, ...crew.medical]);
-      }
+      if (category === 'criminal' && Math.random() < 0.12) return rand([...crew.police, ...crew.engineering, ...crew.medical]);
+      if (category === 'alien' && Math.random() < 0.08) return rand([...crew.science, ...crew.medical]);
       return rand(crew.captains);
     }
 
     function introFor(author, station, day, category, sector) {
-      const by = author.toLowerCase().includes('capit') ? `relatório do comando de ${station}` : `relatório emergencial redigido por ${author}`;
+      const by = author.toLowerCase().includes('capit') ? `relatório do capitão de ${station}` : `relatório emergencial redigido por ${author}`;
       return `${by} • dia ${day} da missão • setor principal: ${sector} • categoria: ${categories[category].label.toLowerCase()}`;
     }
 
@@ -956,12 +661,11 @@
       const involvedB = rand([...crew.engineering, ...crew.science, ...crew.medical, ...crew.police, ...crew.logistics, ...crew.kitchen, ...crew.garden, ...crew.chapel, ...crew.leisure, ...crew.maintenance, ...crew.mining, ...crew.genetics, ...crew.chemistry]);
       const nearbyPlanet = rand(planets);
       const secondSector = rand(sectors.filter(s => s !== sector));
-
       const pool = [];
 
-      pool.push(`${rand(cat.hooks)} O foco inicial da ocorrência estava em ${focus}, situação comunicada ao comando por ${involvedA}. Como de costume em registros internos, não detalharei a natureza do setor além do necessário para reconstituir os fatos. Bastará dizer que ${sector} funcionava dentro do esperado até o ponto em que deixou de fazê-lo.`);
+      pool.push(`${rand(cat.hooks)} O foco inicial da ocorrência estava em ${focus}, situação comunicada ao capitão por ${involvedA}. Como de costume em registros internos, não detalharei a natureza do setor além do necessário para reconstituir os fatos. Bastará dizer que ${sector} funcionava dentro do esperado até o ponto em que deixou de fazê-lo.`);
       pool.push(`${involvedA} foi a primeira pessoa a insistir que o ocorrido merecia registro completo. Em sua versão, o problema parecia pequeno demais para justificar interrupção ampla; ainda assim, havia no modo como descreveu o evento um desconforto que não combinava com mera distração de turno. Quando me dirigi a ${sector}, encontrei atividade contida, vozes baixas e o tipo de atenção silenciosa que antecede decisões ruins ou prudentes.`);
-      pool.push(`${details[category][0]} ${involvedB} confirmou parte do relato e acrescentou que o comportamento observado começara alguns minutos antes, sem gatilho claro na escala regular. A proximidade com ${secondSector} complicou o quadro apenas o suficiente para multiplicar versões internas, e por isso determinei que ninguém alterasse registros, removesse objetos ou improvisasse solução sem comunicação ao comando.`);
+      pool.push(`${details[category][0]} ${involvedB} confirmou parte do relato e acrescentou que o comportamento observado começara alguns minutos antes, sem gatilho claro na escala regular. A proximidade com ${secondSector} complicou o quadro apenas o suficiente para multiplicar versões internas, e por isso determinei que ninguém alterasse registros, removesse objetos ou improvisasse solução sem comunicação ao capitão.`);
       pool.push(`${details[category][1]} Não houve tumulto aberto no primeiro momento. Houve, sim, aquele deslocamento lento da rotina que todos percebem e poucos nomeiam: gente cruzando corredores com pressa acima do normal, perguntas interrompidas no meio, portas abrindo mais vezes do que o necessário. Uma estação com sessenta e quatro tripulantes não precisa de pânico para entender que algo saiu do lugar.`);
       pool.push(`${details[category][2]} A polícia foi avisada quando cabível, a ala médica quando prudente, e a engenharia sempre que qualquer cenário permitia dúvida estrutural. Não se tratava de dramatização; tratava-se de impedir que a ocorrência se espalhasse da forma errada. Em viagens longas, erros pequenos crescem não por força própria, mas porque a repetição da rotina torna todos rápidos demais em concluir antes de ver.`);
       pool.push(`${details[category][3]} O ponto central do caso permaneceu em ${sector}, mas seus efeitos tocaram mais de um setor. Em dado momento, recebi informe vindo de ${secondSector} indicando reflexo indireto da mesma ocorrência, o que reforçou minha decisão de manter o registro narrativo e não apenas técnico. Há casos que se resolvem com ferramenta; outros exigem ordem, paciência e memória documental.`);
@@ -972,7 +676,7 @@
       return pool;
     }
 
-    function expandToTarget(baseText, category, sector) {
+    function expandToTarget(baseText, sector) {
       const filler = [
         `Acrescento que nenhuma das pessoas envolvidas demonstrou intenção de exagerar os fatos, circunstância que pesa a favor da credibilidade geral deste registro.`,
         `Reforcei que relatórios como este não existem para embelezar rotina, mas para impedir que a memória de bordo dependa apenas da versão mais confortável.`,
@@ -986,12 +690,10 @@
 
       let result = baseText.trim();
       let words = result.split(/\s+/).length;
-
       while (words < WORD_TARGET) {
         result += ' ' + rand(filler);
         words = result.split(/\s+/).length;
       }
-
       return trimToTarget(result, WORD_TARGET);
     }
 
@@ -1007,14 +709,12 @@
       const words = text.split(/\s+/);
       const paragraphs = [];
       const chunkSize = Math.ceil(words.length / 8);
-      for (let i = 0; i < words.length; i += chunkSize) {
-        paragraphs.push(words.slice(i, i + chunkSize).join(' '));
-      }
+      for (let i = 0; i < words.length; i += chunkSize) paragraphs.push(words.slice(i, i + chunkSize).join(' '));
       return paragraphs.join("\n\n");
     }
 
-    function generateReport(mode = 'auto') {
-      const category = pickCategory(mode);
+    function generateReport() {
+      const category = pickCategory();
       const station = stationCode();
       const record = recordCode();
       const day = missionDay();
@@ -1026,32 +726,16 @@
       const focus = rand(categories[category].focuses);
       const author = pickAuthor(category);
       const intro = introFor(author, station, day, category, sector);
-
       const rawParagraphs = buildParagraphs(category, focus, sector, station, author).join(' ');
-      const expanded = expandToTarget(rawParagraphs, category, sector);
+      const expanded = expandToTarget(rawParagraphs, sector);
       const text = formatParagraphs(expanded);
 
-      return {
-        station,
-        record,
-        day,
-        month,
-        sector,
-        classification,
-        threat,
-        title,
-        intro,
-        author,
-        category,
-        text,
-        wordCount: expanded.split(/\s+/).length
-      };
+      return { station, record, day, month, sector, classification, threat, title, intro, author, category, text, wordCount: expanded.split(/\s+/).length };
     }
 
     const el = {
       generateBtn: document.getElementById('generateBtn'),
       copyBtn: document.getElementById('copyBtn'),
-      toneSelect: document.getElementById('toneSelect'),
       stationCode: document.getElementById('stationCode'),
       recordId: document.getElementById('recordId'),
       mainSector: document.getElementById('mainSector'),
@@ -1086,9 +770,7 @@
       el.footerNote.textContent = `arquivo emitido por ${report.author.toLowerCase()} • envio potencial ao próximo planeta útil quando aplicável • registro ${report.record}`;
     }
 
-    el.generateBtn.addEventListener('click', () => {
-      renderReport(generateReport(el.toneSelect.value));
-    });
+    el.generateBtn.addEventListener('click', () => renderReport(generateReport()));
 
     el.copyBtn.addEventListener('click', async () => {
       if (!currentReport) return;
@@ -1115,15 +797,11 @@
       }
     });
 
-    renderReport(generateReport('auto'));
+    renderReport(generateReport());
 
     const canvas = document.getElementById('space');
     const ctx = canvas.getContext('2d');
-    let w = 0;
-    let h = 0;
-    let stars = [];
-    let comets = [];
-    let planetsBg = [];
+    let w = 0, h = 0, stars = [], comets = [], planetsBg = [];
 
     function resize() {
       const ratio = window.devicePixelRatio || 1;
